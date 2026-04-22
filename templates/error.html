@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No Results Found — MealMatch</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #00b4d8;        /* sky blue */
+        --primary-dark: #0096c7;
+        --secondary: #2ecc71;      /* green */
+        --secondary-dark: #27ae60;
+
+        --light: #e6f7fb;
+        --white: #ffffff;
+        --text: #1a1a1a;
+        --muted: #6b7280;
+
+        --bg: linear-gradient(135deg, #e6f7fb 0%, #d4f5e9 50%, #f0fffb 100%);
+        --shadow: 0 10px 40px rgba(0, 180, 216, 0.15);
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* NAVBAR */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 60px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 20px rgba(0, 180, 216, 0.1);
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--muted);
+        margin-left: 28px;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      /* BODY */
+      .page-body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+      }
+
+      /* CARD */
+      .error-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(18px);
+        border-radius: 24px;
+        padding: 60px 50px;
+        max-width: 520px;
+        width: 100%;
+        text-align: center;
+        box-shadow: var(--shadow);
+        animation: fadeIn 0.6s ease;
+        position: relative;
+      }
+
+      .error-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .error-icon {
+        width: 90px;
+        height: 90px;
+        background: var(--light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+      }
+
+      .error-icon i {
+        font-size: 34px;
+        color: var(--primary);
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      .error-message {
+        font-size: 15px;
+        color: var(--muted);
+        margin-bottom: 32px;
+        background: #f0fffb;
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      /* BUTTONS */
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 12px 26px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+      }
+
+      .btn-outline {
+        border: 2px solid var(--secondary);
+        color: var(--secondary);
+        padding: 11px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn-outline:hover {
+        background: #e8fff4;
+      }
+
+      /* TIPS */
+      .tips {
+        margin-top: 30px;
+        text-align: left;
+        border-top: 1px solid #d4f5e9;
+        padding-top: 20px;
+      }
+
+      .tips h3 {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      .tips li {
+        font-size: 13px;
+        margin-bottom: 8px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .tips i {
+        color: var(--secondary);
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* MOBILE */
+      .nav-toggle {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 14px 20px;
+        }
+
+        .nav-toggle {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          cursor: pointer;
+        }
+
+        .nav-toggle span {
+          width: 24px;
+          height: 2px;
+          background: var(--primary);
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 12px;
+          margin: 0;
+        }
+
+        .error-card {
+          padding: 40px 20px;
+        }
+
+        .btn-group {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn-primary,
+        .btn-outline {
+          width: 100%;
+          max-width: 250px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a class="nav-brand" href="/">
+        MealMatch
+      </a>
+
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/recommend">Search</a>
+      </div>
+    </nav>
+
+    <script>
+      document.getElementById("navToggle").onclick = function () {
+        document.getElementById("navLinks").classList.toggle("open");
+      };
+    </script>
+
+    <div class="page-body">
+      <div class="error-card">
+        <div class="error-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <h1>No Results Found</h1>
+
+        <div class="error-message">{{ message }}</div>
+
+        <div class="btn-group">
+          <a href="/recommend" class="btn-primary">Try Again</a>
+          <a href="/" class="btn-outline">Home</a>
+        </div>
+
+        <div class="tips">
+          <h3>Helpful Tips</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle-info"></i> Check spelling</li>
+            <li><i class="fa-solid fa-circle-info"></i> Try broader filters</li>
+            <li><i class="fa-solid fa-circle-info"></i> Use full names</li>
+            <li><i class="fa-solid fa-circle-info"></i> Lower rating filter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 MealMatch · Developed by Vaishnavi Joundal
+    </footer>
+  </body>
+</html>
